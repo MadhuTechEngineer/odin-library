@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black-brown: #342B25;
+    --brown: #8B5E3C;
+    --light-brown: #B17E58;
+    --near-white: #FFFCF7;
+    --redish-brown: #A64B3C;
+    --light-redish-brown: #B65749;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--black-brown);
+    background: var(--brown);
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 100px auto; 
+    text-align: center;
+}
+
+.library-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(182px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+header {
+    background-color: var(--near-white);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.book-card {
+    background-color: var(--near-white);
+    border-right: 6px solid rgb(0, 0, 0);
+    border-radius: 1px 10px 10px 1px;
+    height: 250px;
+    padding: 20px 10px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr) ;
+    border-left: 10px solid #342B25;
+}
+
+p, label {
+    color: #342B25;
+}
+
+button {
+    background-color: var(--brown);
+    color: var(--near-white);
+    font-size: 1rem;;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 30px;
+    box-shadow: 4px 3px 1px var(--black-brown);
+    transition: 200ms transform ease-in, 200ms backgroundcolor ease-in;
+}
+
+button:hover {
+    background-color: var(--light-brown);
+    transform: scale(1.02) rotate(1deg);
+}
+
+.book-card > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+h1 {
+    position: relative;
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    background-color: var(--black-brown);
+    width: 4px;
+    height: 4px;
+    right: 10p;
+    top: 31px;
+}
+
+h2 {
+    font-size: 20px;
+    padding-bottom: 4px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    border: 1px solid #342B25;
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    position: relative;
+}
+
+input[type="checkbox"]::before {
+    content: '';
+    background-color: var(--black-brown);
+    position: absolute;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    clip-path: polygon(23.09% 75.61%, 79.25% 26.75%, 23.09% 100%, 0.23% 58.49%);
+    transform: scale(0);
+    top: -17px;
+    left: -1px;
+    transition: 150ms transform ease-in-out;
+    transform-origin: bottom left;
+}
+
+input[type="checkbox"]:hover {
+    transform: scale(1.1);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.book-card button {
+    all: revert;
+    background-color: var(--redish-brown);
+    color: var(--near-white);
+    width: 50px;
+    font-size: 13px;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 0;
+    margin-left: 15px;
+    text-align: center;
+    box-shadow: 2px 2px 4px rgb(201, 201, 201);
+    transition: 150ms transform ease-in;
+}
+
+.book-card button:hover {
+    background-color: var(--light-redish-brown);
+    transform: scale(1.1);
+}
+
+dialog {
+    padding: 40px 20px;
+    border: none;
+    border-radius: 10px;
+    margin: auto;
+}
+
+form {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 20px;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+}
+
+form > div:last-child {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+form > div:nth-last-child(2) {
+    flex-direction: row;
+    align-items: center;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    border: 1px solid var(--black-brown);
+    border-radius: 4px;
+    font-size: 17px;
+    padding: 5px;
+}
+
+dialog::backdrop {
+    background-color: rgba(143, 143, 143, 0.356);
+    backdrop-filter: blur(3px);
+}
+
+.empty-library {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
